@@ -1,0 +1,382 @@
+﻿Using username "ubuntu".
+Authenticating with public key "imported-openssh-key" from agent
+Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.13.0-158-generic x86_64)
+
+
+ * Documentation:  https://help.ubuntu.com/
+
+
+  System information as of Thu Nov 15 21:07:41 UTC 2018
+
+
+  System load: 0.0               Memory usage: 5%   Processes:       82
+  Usage of /:  10.2% of 7.74GB   Swap usage:   0%   Users logged in: 0
+
+
+  Graph this data and manage this system at:
+    https://landscape.canonical.com/
+
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+
+ubuntu@ip-172-31-95-176:~$ sudo wget http://nginx.org/keys/nginx_signing.key
+--2018-11-15 21:30:22--  http://nginx.org/keys/nginx_signing.key
+Resolving nginx.org (nginx.org)... 95.211.80.227, 206.251.255.63, 2606:7100:1:69                                                                                                                                                             ::3f, ...
+Connecting to nginx.org (nginx.org)|95.211.80.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1561 (1.5K) [text/plain]
+Saving to: ‘nginx_signing.key’
+
+
+100%[======================================>] 1,561       --.-K/s   in 0s
+
+
+2018-11-15 21:30:22 (152 MB/s) - ‘nginx_signing.key’ saved [1561/1561]
+
+
+ubuntu@ip-172-31-95-176:~$ sudo apt-key add nginx_signing.key
+OK
+ubuntu@ip-172-31-95-176:~$ cd /etc/apt
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo vim sources.list
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo apt-get update
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty InRelease
+Get:1 http://us-east-1.ec2.archive.ubuntu.com trusty-updates InRelease [65.9 kB]
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports InRelease
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty Release.gpg
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty Release
+Get:2 http://us-east-1.ec2.archive.ubuntu.com trusty-updates/main Sources [425 k                                                                                                                                                             B]
+Get:3 http://us-east-1.ec2.archive.ubuntu.com trusty-updates/restricted Sources                                                                                                                                                              [6,322 B]
+Get:4 http://us-east-1.ec2.archive.ubuntu.com trusty-updates/universe Sources [2                                                                                                                                                             23 kB]
+Get:5 http://us-east-1.ec2.archive.ubuntu.com trusty-updates/multiverse Sources                                                                                                                                                              [7,436 B]
+Get:6 http://us-east-1.ec2.archive.ubuntu.com trusty-updates/main amd64 Packages                                                                                                                                                              [1,123 kB]
+Get:7 http://us-east-1.ec2.archive.ubuntu.com trusty-updates/restricted amd64 Pa                                                                                                                                                             ckages [17.2 kB]
+Get:8 http://us-east-1.ec2.archive.ubuntu.com trusty-updates/universe amd64 Pack                                                                                                                                                             ages [504 kB]
+Get:9 http://us-east-1.ec2.archive.ubuntu.com trusty-updates/multiverse amd64 Pa                                                                                                                                                             ckages [14.6 kB]
+Get:10 http://security.ubuntu.com trusty-security InRelease [65.9 kB]
+Get:11 http://us-east-1.ec2.archive.ubuntu.com trusty-updates/main Translation-e                                                                                                                                                             n [557 kB]
+Get:12 http://us-east-1.ec2.archive.ubuntu.com trusty-updates/multiverse Transla                                                                                                                                                             tion-en [7,616 B]
+Get:13 http://us-east-1.ec2.archive.ubuntu.com trusty-updates/restricted Transla                                                                                                                                                             tion-en [4,021 B]
+Get:14 http://us-east-1.ec2.archive.ubuntu.com trusty-updates/universe Translati                                                                                                                                                             on-en [269 kB]
+Get:15 http://nginx.org xenial InRelease [4,339 B]
+Get:16 http://us-east-1.ec2.archive.ubuntu.com trusty-backports/main Sources [9,                                                                                                                                                             709 B]
+Get:17 http://us-east-1.ec2.archive.ubuntu.com trusty-backports/restricted Sourc                                                                                                                                                             es [28 B]
+Get:18 http://us-east-1.ec2.archive.ubuntu.com trusty-backports/universe Sources                                                                                                                                                              [35.4 kB]
+Get:19 http://us-east-1.ec2.archive.ubuntu.com trusty-backports/multiverse Sourc                                                                                                                                                             es [1,896 B]
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/main amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/restricted amd64 Pa                                                                                                                                                             ckages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/universe amd64 Pack                                                                                                                                                             ages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/multiverse amd64 Pa                                                                                                                                                             ckages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/main Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/multiverse Translat                                                                                                                                                             ion-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/restricted Translat                                                                                                                                                             ion-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/universe Translatio                                                                                                                                                             n-en
+Get:20 http://us-east-1.ec2.archive.ubuntu.com trusty/main Sources [1,064 kB]
+Get:21 http://nginx.org xenial/nginx Sources [12.5 kB]
+Get:22 http://us-east-1.ec2.archive.ubuntu.com trusty/restricted Sources [5,433                                                                                                                                                              B]
+Get:23 http://us-east-1.ec2.archive.ubuntu.com trusty/universe Sources [6,399 kB                                                                                                                                                             ]
+Get:24 http://nginx.org xenial/nginx amd64 Packages [17.9 kB]
+Get:25 http://security.ubuntu.com trusty-security/main Sources [166 kB]
+Get:26 http://us-east-1.ec2.archive.ubuntu.com trusty/multiverse Sources [174 kB                                                                                                                                                             ]
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/main amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/restricted amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/universe amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/multiverse amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/main Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/multiverse Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/restricted Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/universe Translation-en
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty/main Translation-en_US
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty/multiverse Translation-en_US
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty/restricted Translation-en_US
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty/universe Translation-en_US
+Get:27 http://security.ubuntu.com trusty-security/universe Sources [93.0 kB]
+Get:28 http://security.ubuntu.com trusty-security/main amd64 Packages [790 kB]
+Ign http://nginx.org xenial/nginx Translation-en_US
+Ign http://nginx.org xenial/nginx Translation-en
+Get:29 http://security.ubuntu.com trusty-security/universe amd64 Packages [272 k                                                                                                                                                             B]
+Get:30 http://security.ubuntu.com trusty-security/main Translation-en [423 kB]
+Get:31 http://security.ubuntu.com trusty-security/universe Translation-en [147 k                                                                                                                                                             B]
+Fetched 12.9 MB in 5s (2,505 kB/s)
+Reading package lists... Done
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo apt-get install nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+
+The following packages have unmet dependencies:
+ nginx : Depends: init-system-helpers (>= 1.18~) but 1.14ubuntu1 is to be instal                                                                                                                                                             led
+         Depends: libssl1.0.0 (>= 1.0.2~beta3) but 1.0.1f-1ubuntu2.26 is to be i                                                                                                                                                             nstalled
+E: Unable to correct problems, you have held broken packages.
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo apt-get update
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty InRelease
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates InRelease
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports InRelease
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty Release.gpg
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty Release
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/main Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/restricted Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/universe Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/multiverse Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/main amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/restricted amd64 Pack                                                                                                                                                             ages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/universe amd64 Packag                                                                                                                                                             es
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/multiverse amd64 Pack                                                                                                                                                             ages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/main Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/multiverse Translatio                                                                                                                                                             n-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/restricted Translatio                                                                                                                                                             n-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/universe Translation-                                                                                                                                                             en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/main Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/restricted Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/universe Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/multiverse Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/main amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/restricted amd64 Pa                                                                                                                                                             ckages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/universe amd64 Pack                                                                                                                                                             ages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/multiverse amd64 Pa                                                                                                                                                             ckages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/main Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/multiverse Translat                                                                                                                                                             ion-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/restricted Translat                                                                                                                                                             ion-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/universe Translatio                                                                                                                                                             n-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/main Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/restricted Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/universe Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/multiverse Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/main amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/restricted amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/universe amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/multiverse amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/main Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/multiverse Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/restricted Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/universe Translation-en
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty/main Translation-en_US
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty/multiverse Translation-en_US
+Hit http://security.ubuntu.com trusty-security InRelease
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty/restricted Translation-en_US
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty/universe Translation-en_US
+Hit http://nginx.org xenial InRelease
+Hit http://security.ubuntu.com trusty-security/main Sources
+Hit http://nginx.org xenial/nginx Sources
+Hit http://security.ubuntu.com trusty-security/universe Sources
+Hit http://nginx.org xenial/nginx amd64 Packages
+Hit http://security.ubuntu.com trusty-security/main amd64 Packages
+Hit http://security.ubuntu.com trusty-security/universe amd64 Packages
+Hit http://security.ubuntu.com trusty-security/main Translation-en
+Hit http://security.ubuntu.com trusty-security/universe Translation-en
+Ign http://nginx.org xenial/nginx Translation-en_US
+Ign http://nginx.org xenial/nginx Translation-en
+Reading package lists... Done
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo apt-get install nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+
+The following packages have unmet dependencies:
+ nginx : Depends: init-system-helpers (>= 1.18~) but 1.14ubuntu1 is to be instal                                                                                                                                                             led
+         Depends: libssl1.0.0 (>= 1.0.2~beta3) but 1.0.1f-1ubuntu2.26 is to be i                                                                                                                                                             nstalled
+E: Unable to correct problems, you have held broken packages.
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo apt-get install nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+
+The following packages have unmet dependencies:
+ nginx : Depends: init-system-helpers (>= 1.18~) but 1.14ubuntu1 is to be installed
+         Depends: libssl1.0.0 (>= 1.0.2~beta3) but 1.0.1f-1ubuntu2.26 is to be installed
+E: Unable to correct problems, you have held broken packages.
+ubuntu@ip-172-31-95-176:/etc/apt$ npm install
+The program 'npm' is currently not installed. You can install it by typing:
+sudo apt-get install npm
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo apt-get install nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+
+The following packages have unmet dependencies:
+ nginx : Depends: init-system-helpers (>= 1.18~) but 1.14ubuntu1 is to be installed
+         Depends: libssl1.0.0 (>= 1.0.2~beta3) but 1.0.1f-1ubuntu2.26 is to be installed
+E: Unable to correct problems, you have held broken packages.
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo service nginx start
+nginx: unrecognized service
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo service nginx start
+nginx: unrecognized service
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo apt-get install nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+
+The following packages have unmet dependencies:
+ nginx : Depends: init-system-helpers (>= 1.18~) but 1.14ubuntu1 is to be installed
+         Depends: libssl1.0.0 (>= 1.0.2~beta3) but 1.0.1f-1ubuntu2.26 is to be installed
+E: Unable to correct problems, you have held broken packages.
+ubuntu@ip-172-31-95-176:/etc/apt$ cd ..
+ubuntu@ip-172-31-95-176:/etc$ cd ..
+ubuntu@ip-172-31-95-176:/$ Run sudo wget http://nginx.org/keys/nginx_signing.key
+Run: command not found
+ubuntu@ip-172-31-95-176:/$
+ubuntu@ip-172-31-95-176:/$  sudo apt-key add nginx_signing.key
+gpg: can't open `nginx_signing.key': No such file or directory
+ubuntu@ip-172-31-95-176:/$ sudo wget http://nginx.org/keys/nginx_signing.key
+--2018-11-15 21:33:04--  http://nginx.org/keys/nginx_signing.key
+Resolving nginx.org (nginx.org)... 95.211.80.227, 206.251.255.63, 2606:7100:1:69::3f, ...
+Connecting to nginx.org (nginx.org)|95.211.80.227|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1561 (1.5K) [text/plain]
+Saving to: ‘nginx_signing.key’
+
+
+100%[===============================================================>] 1,561       --.-K/s   in 0s
+
+
+2018-11-15 21:33:04 (153 MB/s) - ‘nginx_signing.key’ saved [1561/1561]
+
+
+ubuntu@ip-172-31-95-176:/$ sudo apt-key add nginx_signing.key
+OK
+ubuntu@ip-172-31-95-176:/$ cd /etc/apt
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo vim sources.list
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo apt-get update
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty InRelease
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates InRelease
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports InRelease
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty Release.gpg
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty Release
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/main Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/restricted Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/universe Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/multiverse Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/main amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/restricted amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/universe amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/multiverse amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/main Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/multiverse Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/restricted Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-updates/universe Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/main Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/restricted Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/universe Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/multiverse Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/main amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/restricted amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/universe amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/multiverse amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/main Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/multiverse Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/restricted Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty-backports/universe Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/main Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/restricted Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/universe Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/multiverse Sources
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/main amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/restricted amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/universe amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/multiverse amd64 Packages
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/main Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/multiverse Translation-en
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/restricted Translation-en
+Hit http://nginx.org xenial InRelease
+Hit http://us-east-1.ec2.archive.ubuntu.com trusty/universe Translation-en
+Hit http://security.ubuntu.com trusty-security InRelease
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty/main Translation-en_US
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty/multiverse Translation-en_US
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty/restricted Translation-en_US
+Ign http://us-east-1.ec2.archive.ubuntu.com trusty/universe Translation-en_US
+Hit http://nginx.org xenial/nginx Sources
+Hit http://security.ubuntu.com trusty-security/main Sources
+Hit http://nginx.org xenial/nginx amd64 Packages
+Hit http://security.ubuntu.com trusty-security/universe Sources
+Hit http://security.ubuntu.com trusty-security/main amd64 Packages
+Hit http://security.ubuntu.com trusty-security/universe amd64 Packages
+Hit http://security.ubuntu.com trusty-security/main Translation-en
+Hit http://security.ubuntu.com trusty-security/universe Translation-en
+Ign http://nginx.org xenial/nginx Translation-en_US
+Ign http://nginx.org xenial/nginx Translation-en
+Reading package lists... Done
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo apt-get install nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+
+The following packages have unmet dependencies:
+ nginx : Depends: init-system-helpers (>= 1.18~) but 1.14ubuntu1 is to be installed
+         Depends: libssl1.0.0 (>= 1.0.2~beta3) but 1.0.1f-1ubuntu2.26 is to be installed
+E: Unable to correct problems, you have held broken packages.
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo service nginx start
+nginx: unrecognized service
+ubuntu@ip-172-31-95-176:/etc/apt$ cd ..
+ubuntu@ip-172-31-95-176:/etc$ cd ..
+ubuntu@ip-172-31-95-176:/$ cd /etc/apt
+ubuntu@ip-172-31-95-176:/etc/apt$ sudo apt-get install nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+
+The following packages have unmet dependencies:
+ nginx : Depends: init-system-helpers (>= 1.18~) but 1.14ubuntu1 is to be installed
+         Depends: libssl1.0.0 (>= 1.0.2~beta3) but 1.0.1f-1ubuntu2.26 is to be installed
+E: Unable to correct problems, you have held broken packages.
+ubuntu@ip-172-31-95-176:/etc/apt$ ^C
+ubuntu@ip-172-31-95-176:/etc/apt$
